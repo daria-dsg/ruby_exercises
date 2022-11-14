@@ -6,11 +6,12 @@ Instructions: implement all of the pending specs (the `it` statements without bl
 =end
 
 describe Dessert do
+  subject(:tiramisu) { Dessert.new("creamy", 10, chef) }
   let(:chef) { double("chef") }
 
   describe "#initialize" do
     it "sets a type"
-
+      # expect(simone.type).to 
     it "sets a quantity"
 
     it "starts ingredients as an empty array"
