@@ -36,7 +36,17 @@ describe Dessert do
   end
 
   describe "#mix!" do
-    it "shuffles the ingredient array"
+    it "shuffles the ingredient array" do 
+        ingredients = ["eggs", "sugar", "milk", "cream"]
+
+        ingredients.each do |ingredient|
+          tiramisu.add_ingredient(ingredient)
+        end
+
+       tiramisu.mix!
+       expect(tiramisu.ingredients).not_to eq(ingredients)
+       expect(tiramisu.ingredients.sort).to eq(ingredients.sort)
+    end
   end
 
   describe "#eat" do
