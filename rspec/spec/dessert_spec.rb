@@ -37,29 +37,41 @@ describe Dessert do
 
   describe "#mix!" do
     it "shuffles the ingredient array" do 
-        ingredients = ["eggs", "sugar", "milk", "cream"]
+      ingredients = ["eggs", "sugar", "milk", "cream"]
 
-        ingredients.each do |ingredient|
-          tiramisu.add_ingredient(ingredient)
-        end
+      ingredients.each do |ingredient|
+        tiramisu.add_ingredient(ingredient)
+      end
 
-       tiramisu.mix!
-       expect(tiramisu.ingredients).not_to eq(ingredients)
-       expect(tiramisu.ingredients.sort).to eq(ingredients.sort)
+      tiramisu.mix!
+      expect(tiramisu.ingredients).not_to eq(ingredients)
+      expect(tiramisu.ingredients.sort).to eq(ingredients.sort)
     end
   end
 
   describe "#eat" do
-    it "subtracts an amount from the quantity"
+    it "subtracts an amount from the quantity" do 
+      tiramisu.eat(6)
+      expect(tiramisu.quantity).to eq(4)
+    end
 
-    it "raises an error if the amount is greater than the quantity"
+    it "raises an error if the amount is greater than the quantity" do
+      expect { Dessert.new("creamy", 5, chef).eat(6) }.to raise_error(RuntimeError)
+    end
   end
 
   describe "#serve" do
-    it "contains the titleized version of the chef's name"
+    it "contains the titleized version of the chef's name" do 
+      allow(chef).to receive(:titleize).and_return ("JOHN")
+
+      expect(tiramisu.serve).to include(chef.titleize)
+    end
   end
 
   describe "#make_more" do
-    it "calls bake on the dessert's chef with the dessert passed in"
+    it "calls bake on the dessert's chef with the dessert passed in" do
+      expect(chef).to receive(:bake).with(tiramisu)
+      tiramisu.make_more
+    end
   end
 end
