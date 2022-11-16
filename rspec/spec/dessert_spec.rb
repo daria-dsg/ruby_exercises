@@ -28,9 +28,8 @@ describe Dessert do
   end
 
   describe "#add_ingredient" do
-    before(:each) { tiramisu.add_ingredient("coffee") }
-
-    it "adds an ingredient to the ingredients array" do 
+    it "adds an ingredient to the ingredients array" do
+       tiramisu.add_ingredient("coffee") 
        expect(tiramisu.ingredients).to include("coffee")
     end
   end
