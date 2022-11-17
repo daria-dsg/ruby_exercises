@@ -9,6 +9,11 @@ def my_uniq(array)
   uniq_array
 end
 
+def two_sum(array)
+  
+end
+
+
 
 
 
