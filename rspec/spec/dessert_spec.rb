@@ -61,8 +61,7 @@ describe Dessert do
 
   describe "#serve" do
     it "contains the titleized version of the chef's name" do 
-      allow(chef).to receive(:titleize).and_return ("JOHN")
-
+      allow(chef).to receive(:titleize).and_return ("John")
       expect(tiramisu.serve).to include(chef.titleize)
     end
   end
