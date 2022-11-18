@@ -25,21 +25,31 @@ describe "#two_sum" do
    let(:array)  { [-1, 0, 2, -2, 1] }
    let(:pairs) { two_sum(array) }
 
-   it "return the pairs with sum of 0" do 
-     pairs.each { |pair| expect(pair.sum).to eq(0) }
+   it "find zero sum pairs" do
+     expect(pairs).to eq([[0, 4], [2, 3]])
    end
+end
 
-   it "return index between 0 and array length" do 
-      pairs.each do |pair|
-        pair.each do |num|
-          expect(num).to be_between(0, array.length - 1).inclusive
-        end
-      end
-   end
+describe "#my_transpose" do
+  let(:array) { 
+      [[0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8]]
+      }
 
-   it "sort array from smaller to bigger indexes" do 
-      expect(pairs.sort).to eq(pairs)
-   end
+  let(:transposed_array) {
+                [[0, 3, 6],
+                [1, 4, 7],
+                [2, 5, 8]]
+                }
+
+  it "converts row to columns and columns to row" do
+    expect(my_transpose(array)).to eq (transposed_array)
+  end
+
+  it "returns array with the same length as original array" do
+     expect(my_transpose(array).length).to eq(array.length)
+  end
 end
 
 
