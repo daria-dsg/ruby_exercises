@@ -34,6 +34,24 @@ def my_transpose(array)
   transposed_array
 end
 
+def pick_stock(array)
+  max = 0
+  pairs = []
+
+  array.each_with_index do |stock1, x|
+    array.each_with_index do |stock2, y|
+       if x != y && (stock2 - stock1) > max && y > x
+         max = (stock2 - stock1)
+         pairs = [x, y]
+       end
+    end
+  end 
+
+  return nil if max == 0
+  
+  pairs
+end
+
 
 
 

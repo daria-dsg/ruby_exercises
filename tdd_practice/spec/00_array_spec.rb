@@ -31,17 +31,13 @@ describe "#two_sum" do
 end
 
 describe "#my_transpose" do
-  let(:array) { 
-      [[0, 1, 2],
-      [3, 4, 5],
-      [6, 7, 8]]
-      }
+  let(:array) { [[0, 1, 2],
+                 [3, 4, 5],
+                 [6, 7, 8]] }
 
-  let(:transposed_array) {
-                [[0, 3, 6],
-                [1, 4, 7],
-                [2, 5, 8]]
-                }
+  let(:transposed_array) {[[0, 3, 6],
+                           [1, 4, 7],
+                           [2, 5, 8]]}
 
   it "converts row to columns and columns to row" do
     expect(my_transpose(array)).to eq (transposed_array)
@@ -49,6 +45,17 @@ describe "#my_transpose" do
 
   it "returns array with the same length as original array" do
      expect(my_transpose(array).length).to eq(array.length)
+  end
+end
+
+
+describe "#pick_stock" do
+  it "find the most profitable pair" do
+    expect(pick_stock([3, 1, 0, 4, 6, 9])).to eq([2, 5])
+  end
+
+  it "does not buy stock in crash" do 
+    expect(pick_stock([5, 4, 3, 2, 1])).to be_nil
   end
 end
 
