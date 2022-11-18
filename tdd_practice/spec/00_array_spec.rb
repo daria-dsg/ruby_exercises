@@ -48,7 +48,6 @@ describe "#my_transpose" do
   end
 end
 
-
 describe "#pick_stock" do
   it "find the most profitable pair" do
     expect(pick_stock([3, 1, 0, 4, 6, 9])).to eq([2, 5])

@@ -1,5 +1,3 @@
-require 'byebug'
-
 def my_uniq(array)
   uniq_array = []
 
@@ -19,7 +17,7 @@ def two_sum(array)
   end
 end
 
-   pairs.sort
+  pairs.sort
 end
 
 def my_transpose(array)
@@ -34,23 +32,26 @@ def my_transpose(array)
   transposed_array
 end
 
-def pick_stock(array)
-  max = 0
-  pairs = []
+def pick_stock(prices)
+  best_profit = 0
+  best_pair = nil
 
-  array.each_with_index do |stock1, x|
-    array.each_with_index do |stock2, y|
-       if x != y && (stock2 - stock1) > max && y > x
-         max = (stock2 - stock1)
-         pairs = [x, y]
-       end
+  prices.each_with_index do |price1, buy_day|
+    prices.each_with_index do |price2, sell_day|
+      
+      # can not buy before sell
+      next if buy_day > sell_day
+      
+      profit = price2 - price1
+      if profit > best_profit
+        best_profit, best_pair  = profit, [buy_day, sell_day]
+      end
     end
   end 
 
-  return nil if max == 0
-  
-  pairs
+  best_pair
 end
+
 
 
 
