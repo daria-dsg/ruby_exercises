@@ -8,10 +8,29 @@ class HanaiTower
     populate
   end
 
+  def [](pos)
+    raise "Invalid pos" unless valid_pos?(pos)
+
+    x,y = pos
+    @piles[x][y]
+  end
+
+  def []=(pos, val)
+    raise "Invalid pos" unless valid_pos?(pos)
+
+    x,y = pos
+    @piles[x][y] = val
+  end
+
+  def valid_pos?(pos)
+    x,y = pos
+    x.between?(0,3) && y.between?(0,3)
+  end
+
   def populate
     (1 .. size).each do |disque|
-       pos = disque - 1
-       @piles[0][pos] = disque
+       pos = [0, disque - 1]
+       self[pos] = disque
     end
   end
 
