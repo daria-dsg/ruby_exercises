@@ -1,4 +1,4 @@
-class HanaiTower
+class Board
   attr_reader :size, :piles
   attr_accessor :piles
 
