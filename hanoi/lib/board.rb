@@ -9,22 +9,18 @@ class Board
   end
 
   def [](pos)
-    raise "Invalid pos" unless valid_pos?(pos)
-
     x,y = pos
     @piles[x][y]
   end
 
   def []=(pos, val)
-    raise "Invalid pos" unless valid_pos?(pos)
-
     x,y = pos
     @piles[x][y] = val
   end
 
   def valid_pos?(pos)
     x,y = pos
-    x.between?(0,3) && y.between?(0,3)
+    x.between?(0,2) && y.between?(0,3)
   end
 
   def populate
