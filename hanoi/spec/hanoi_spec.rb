@@ -9,7 +9,7 @@ describe HanoiTower do
       hanoi.move(0,1)
     end
    
-    it "moves disque from one pile to other" do 
+    it "moves disque from the beggining of one pile to the end of other" do 
       expect(hanoi.board[[1,3]]).to eq(1)
       expect(hanoi.board[[0,0]]).to eq(nil)
     end
