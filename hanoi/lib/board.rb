@@ -9,11 +9,14 @@ class Board
   end
 
   def [](pos)
+    raise "invalid position" unless valid_pos?(pos)
     x,y = pos
     @piles[x][y]
   end
 
   def []=(pos, val)
+    raise "invalid position" unless valid_pos?(pos)
+    
     x,y = pos
     @piles[x][y] = val
   end
