@@ -6,14 +6,27 @@ class HanoiTower
 
   def initialize(size)
     @board = Board.new(size)
-    @size = size 
+    @size = size
+    @piles = board.piles
   end
 
-  def move(start_pile, end_pile)
-    disque = board[[start_pile,0]]
-    raise "an empty pile" if disque == nil
+  # def move(start_pile, end_pile)
+  #   disque = board[[start_pile,0]]
+  #   raise "an empty pile" if disque == nil
     
-    board[[start_pile,0]], board[[end_pile, size - 1]] = nil, disque
+  #   board[[start_pile,0]], board[[end_pile, size - 1]] = nil, disque
+  # end
+
+  def move(start_pile, end_pile)
+    piles.each do |pile|
+      next if disque == nil
+      
+      disque = board[[start_pile,0]]
+      board[[start_pile,0]], board[[end_pile, size - 1]] = nil, disque
+      return
+    end
+
+    raise "an empty pile"
   end
 
   def play
