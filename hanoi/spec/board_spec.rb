@@ -10,7 +10,7 @@ describe Board do
     end
 
     it "creates a piles of discs" do 
-      expect(board.piles[0]).to eq([1, 2, 3, 4])
+      expect(board.piles).to eq([[1, 2, 3, 4],[],[]])
     end
 
     it "raise en error when start pile or end pile are not valid" do
