@@ -4,33 +4,12 @@ class Board
 
   def initialize(size)
     @size = size
-    @piles = Array.new(3) { Array.new(size) }
+    @piles = Array.new(3) { Array.new }
     populate
   end
 
-  def [](pos)
-    raise "invalid position" unless valid_pos?(pos)
-    x,y = pos
-    @piles[x][y]
-  end
-
-  def []=(pos, val)
-    raise "invalid position" unless valid_pos?(pos)
-    
-    x,y = pos
-    @piles[x][y] = val
-  end
-
-  def valid_pos?(pos)
-    x,y = pos
-    x.between?(0,2) && y.between?(0,3)
-  end
-
   def populate
-    (1 .. size).each do |disque|
-       pos = [0, disque - 1]
-       self[pos] = disque
-    end
+    size.times { |i| piles[0] << i + 1 }
   end
 
   def render
