@@ -2,17 +2,18 @@ require_relative 'board'
 require 'byebug'
 
 class HanoiTower
-  attr_reader :board
+  attr_reader :board, :size
 
   def initialize(size)
     @board = Board.new(size)
+    @size = size 
   end
 
   def move(start_pile, end_pile)
     disque = board[[start_pile,0]]
     raise "an empty pile" if disque == nil
     
-    board[[start_pile,0]], board[[end_pile, 0]] = nil, disque
+    board[[start_pile,0]], board[[end_pile, size - 1]] = nil, disque
   end
 
   def play
