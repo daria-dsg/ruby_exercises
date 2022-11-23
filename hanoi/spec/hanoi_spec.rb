@@ -15,7 +15,7 @@ describe HanoiTower do
     end
 
     it "raise en error when start pile is empty or not valid" do
-       expect{ hanoi.move(3,2) }.to raise_error(RuntimeError)
+       expect{ hanoi.move(2,1) }.to raise_error(RuntimeError)
     end
 
     # it "raise en error when end pile has the smaller disque on the bottom" do 
