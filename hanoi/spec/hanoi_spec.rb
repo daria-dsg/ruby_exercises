@@ -9,23 +9,20 @@ describe HanoiTower do
       hanoi.move(0,1)
     end
    
-    it "moves disque from the beggining of one pile to the end of other" do 
-      expect(hanoi.board[[1,3]]).to eq(1)
-      expect(hanoi.board[[0,0]]).to eq(nil)
+    it "moves disque from one pile to other" do 
+      expect(hanoi.board.piles[1][0]).to eq(1)
+      expect(hanoi.board.piles[0][0]).to eq(2)
     end
-
-    it "raise en error when start pile is empty or not valid" do
+    
+    it "raises en exception when start pile is empty" do
        expect{ hanoi.move(2,1) }.to raise_error(RuntimeError)
     end
 
-    it "raise en error when end pile has the smaller disque on the bottom " do 
-      
+    it "raises an exception when start or ending piles are not valid" do 
     end
 
-    # it "moves only disques" do
-    #   hanoi.move(0,2)
-    #   expect(hanoi.piles).not_to eq (hanoi.piles)
-    #   expect(hanoi.piles).to eq([[nil, nil, 3, 4], [nil, nil, nil, nil], [nil, nil, nil, nil]])
-    # end
+    it "does not move the disque  when end pile has the smaller disque on the bottom " do 
+      
+    end
   end
 end
