@@ -12,7 +12,7 @@ class HanoiTower
     raise "end pile has smaller disque" unless valid?(start_pile, end_pile)
 
     disque = board[start_pile].shift
-    board[end_pile] << disque
+    board[end_pile].unshift(disque)
   end
 
   def valid?(start_pile, end_pile)
