@@ -10,10 +10,10 @@ describe HanoiTower do
     end
    
     it "moves disque from one pile to other" do 
-      expect(hanoi.board.piles[1][0]).to eq(1)
-      expect(hanoi.board.piles[0][0]).to eq(2)
+      expect(hanoi.board[1][0]).to eq(1)
+      expect(hanoi.board[0][0]).to eq(2)
     end
-    
+
     it "raises en exception when start pile is empty" do
        expect{ hanoi.move(2,1) }.to raise_error(RuntimeError)
     end
