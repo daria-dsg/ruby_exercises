@@ -21,8 +21,8 @@ describe HanoiTower do
     it "raises an exception when start or ending piles are not valid" do 
     end
 
-    it "does not move the disque  when end pile has the smaller disque on the bottom " do 
-      
+    it "raises an excpetion when end pile has the smaller disque on the bottom " do 
+      expect{ hanoi.move(0,1) }.to raise_error(RuntimeError)
     end
   end
 end
