@@ -2,7 +2,7 @@ require 'hanoi'
 require 'byebug'
 
 describe HanoiTower do 
-  subject(:hanoi) { HanoiTower.new(4) }
+  subject(:hanoi) { HanoiTower.new(3) }
    
   describe "#move" do
     before(:each) do
@@ -23,12 +23,20 @@ describe HanoiTower do
     end
   end
 
-  # describe "#won" do 
-  #   it "returns true when all disque at the last pile" do
-  #     expect(hanoi.move).
-  #   end
+  describe "#won?" do 
+    it "returns true when all disque at the last pile" do
+      hanoi.move(0,1)
+      hanoi.move(2,1)
+      hanoi.move(0,2)
+      hanoi.move(1,0)
+      hanoi.move(1,2)
+      hanoi.move(0,2)
+      
+      expect(hanoi.won?).to eq(true)
+      expect(hanoi.board.piles).to eq ([[],[],[1, 2, 3]])
+    end
 
-  #   it "returns false when not all disque at the last pile" do 
-  #   end
-  # end
+    it "returns false when not all disque at the last pile" do 
+    end
+  end
 end
