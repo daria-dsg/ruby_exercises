@@ -11,7 +11,7 @@ describe Board do
     end
 
     it "creates a piles of discs" do 
-      expect(board.piles).to eq([[4, 3, 2, 1],[],[]])
+      expect(board.piles).to eq([[1, 2, 3, 4],[],[]])
     end
   end
 end
