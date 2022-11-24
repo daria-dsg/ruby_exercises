@@ -8,8 +8,10 @@ class HanoiTower
   end
 
   def move(start_pile, end_pile)
-    disque = board.piles[start_pile].shift
-    board.piles[end_pile] << disque
+    raise "start pile is empty" if board[start_pile].empty?
+    
+    disque = board[start_pile].shift
+    board[end_pile] << disque
   end
 
   def prompt(pile)
