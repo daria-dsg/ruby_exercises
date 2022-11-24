@@ -2,6 +2,7 @@ require 'board'
 require 'byebug'
 
 describe Board do
+  
   subject (:board) { Board.new(4) }
 
   describe "#initialize" do 
@@ -10,7 +11,7 @@ describe Board do
     end
 
     it "creates a piles of discs" do 
-      expect(board.piles).to eq([[1, 2, 3, 4],[],[]])
+      expect(board.piles).to eq([[4, 3, 2, 1],[],[]])
     end
   end
 end
