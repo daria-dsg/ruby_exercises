@@ -8,7 +8,8 @@ class HanoiTower
   end
 
   def move(start_pile, end_pile)
-
+    disque = board.piles[start_pile].shift
+    board.piles[end_pile] << disque
   end
 
   def prompt(pile)
