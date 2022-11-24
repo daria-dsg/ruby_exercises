@@ -8,7 +8,7 @@ class Board
   end
 
   def populate
-    size.times { |i| piles[0] << -(i - size)}
+    size.times { |i| piles[0] << i + 1}
   end
 
   def [](pos)
