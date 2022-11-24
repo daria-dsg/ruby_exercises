@@ -9,9 +9,15 @@ class HanoiTower
 
   def move(start_pile, end_pile)
     raise "start pile is empty" if board[start_pile].empty?
-    
+    raise "end pile has smaller disque" unless valid?(start_pile, end_pile)
+
     disque = board[start_pile].shift
     board[end_pile] << disque
+  end
+
+  def valid?(start_pile, end_pile)
+     return true if board[end_pile].empty?
+     board[start_pile][0] < board[end_pile][0]
   end
 
   def prompt(pile)
