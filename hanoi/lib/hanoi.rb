@@ -20,6 +20,12 @@ class HanoiTower
      board[start_pile][0] < board[end_pile][0]
   end
 
+  def won?
+    pile = (1 ..size).to_a
+    board.piles.last == pile &&
+       board.piles[0 ... -1].all?(&:empty?)
+  end
+
   def prompt(pile)
     print "Enter the #{pile} pile: "
     gets.chomp.to_i - 1
