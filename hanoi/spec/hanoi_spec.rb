@@ -1,5 +1,4 @@
 require 'hanoi'
-require 'byebug'
 
 describe HanoiTower do 
   subject(:hanoi) { HanoiTower.new(3) }

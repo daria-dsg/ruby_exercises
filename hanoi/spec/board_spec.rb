@@ -1,8 +1,6 @@
 require 'board'
-require 'byebug'
 
 describe Board do
-  
   subject (:board) { Board.new(4) }
 
   describe "#initialize" do 
