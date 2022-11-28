@@ -1,4 +1,5 @@
 require_relative 'board'
+require 'byebug'
 
 class HanoiTower
   attr_reader :board
@@ -29,7 +30,8 @@ class HanoiTower
   def prompt(pile)
     print "Enter the #{pile} pile: "
     pile = gets.chomp.to_i - 1
-    raise "pile is not valid"unless pile.between?(0, board.size)
+    raise "pile is not valid" unless pile.between?(0, board.size)
+    pile 
   end
 
   def play
