@@ -21,18 +21,27 @@ class HanoiTower
   end
 
   def won?
-    pile = (1 ..size).to_a
+    pile = (1 .. board.size).to_a
     board.piles.last == pile &&
        board.piles[0 ... -1].all?(&:empty?)
   end
 
   def prompt(pile)
     print "Enter the #{pile} pile: "
-    gets.chomp.to_i - 1
+    pile = gets.chomp.to_i - 1
+    raise "pile is not valid"unless pile.between?(0, board.size)
   end
 
   def play
-    start_pile, end_pile = prompt("starting"), prompt("ending")
-    move(start_pile, end_pile)
+    until won?
+      begin
+        board.render
+        start_pile, end_pile = prompt("starting"), prompt("ending")
+        move(start_pile, end_pile)
+      rescue RuntimeError => e
+        puts "#{e.message}. try again"
+        retry
+      end
+    end
   end
 end
