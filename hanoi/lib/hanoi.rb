@@ -9,8 +9,8 @@ class HanoiTower
   end
 
   def move(start_pile, end_pile)
-    raise "start pile is empty" if board[start_pile].empty?
-    raise "end pile has smaller disque" unless valid?(start_pile, end_pile)
+    raise "Start pile is empty" if board[start_pile].empty?
+    raise "End pile has smaller disque" unless valid?(start_pile, end_pile)
 
     disque = board[start_pile].shift
     board[end_pile].unshift(disque)
@@ -30,20 +30,25 @@ class HanoiTower
   def prompt(pile)
     print "Enter the #{pile} pile: "
     pile = gets.chomp.to_i - 1
-    raise "pile is not valid" unless pile.between?(0, board.size)
+    raise "Pile is not valid" unless pile.between?(0, board.size)
     pile 
   end
 
   def play
     until won?
       begin
+        system("clear")
         board.render
         start_pile, end_pile = prompt("starting"), prompt("ending")
         move(start_pile, end_pile)
       rescue RuntimeError => e
         puts "#{e.message}. try again"
+        sleep 0.75
         retry
       end
+      sleep 0.75
     end
+
+    print "Congratulations! You solved the puzzle!"
   end
 end
