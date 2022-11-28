@@ -37,8 +37,8 @@ class HanoiTower
   def play
     until won?
       begin
-        system("clear")
-        board.render
+        display 
+        
         start_pile, end_pile = prompt("starting"), prompt("ending")
         move(start_pile, end_pile)
       rescue RuntimeError => e
@@ -46,9 +46,15 @@ class HanoiTower
         sleep 0.75
         retry
       end
+
       sleep 0.75
     end
 
     print "Congratulations! You solved the puzzle!"
+  end
+
+  def display
+    system("clear")
+    board.render
   end
 end
