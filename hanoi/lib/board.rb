@@ -21,8 +21,8 @@ class Board
        pile.each do |disque|
          puts disque unless disque == nil
        end
-       print "_____"
-       print "  "
+
+      puts "_____"
     end
   end
 end
